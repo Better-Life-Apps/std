@@ -1,0 +1,2 @@
+include ':std'
+rootProject.name = "std"
