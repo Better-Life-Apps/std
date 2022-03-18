@@ -2,7 +2,6 @@ package com.betterlifeapps.std.ui.composables
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -20,7 +19,8 @@ import androidx.compose.ui.unit.sp
 fun UiButton(
     text: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp)
 ) {
     Button(
         onClick = onClick,
@@ -28,7 +28,7 @@ fun UiButton(
         shape = MaterialTheme.shapes.small.copy(
             CornerSize(16.dp)
         ),
-        contentPadding = PaddingValues(horizontal = 32.dp, vertical = 8.dp)
+        contentPadding = contentPadding
     ) {
         Text(
             text = text,
@@ -45,8 +45,9 @@ fun UiButton(
 fun UiButton(
     @StringRes stringRes: Int,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) = UiButton(text = stringResource(id = stringRes), onClick = onClick, modifier)
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp)
+) = UiButton(text = stringResource(id = stringRes), onClick = onClick, modifier, contentPadding)
 
 @Preview
 @Composable
