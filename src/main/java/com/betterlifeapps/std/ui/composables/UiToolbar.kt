@@ -3,15 +3,15 @@ package com.betterlifeapps.std.ui.composables
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.betterlifeapps.std.ui.theme.toolbarTextStyle
 
 @Composable
 fun UiToolbar(
@@ -19,7 +19,9 @@ fun UiToolbar(
     showBackButton: Boolean = true,
     onBackButtonClick: () -> Unit = {}
 ) {
-    TopAppBar {
+    TopAppBar(
+        backgroundColor = Color.White
+    ) {
         if (showBackButton) {
             IconButton(onClick = {
                 onBackButtonClick()
@@ -27,7 +29,7 @@ fun UiToolbar(
                 Icon(
                     Icons.Filled.ArrowBack,
                     contentDescription = null,
-                    tint = MaterialTheme.colors.onSurface
+                    tint = Color.Black
                 )
             }
         } else {
@@ -35,7 +37,7 @@ fun UiToolbar(
         }
         Text(
             text = text,
-            fontSize = 22.sp,
+            style = toolbarTextStyle,
             modifier = Modifier.padding(start = 8.dp)
         )
 //        Spacer(Modifier.weight(1f, true))
