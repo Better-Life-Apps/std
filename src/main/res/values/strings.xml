@@ -3,5 +3,6 @@
     <string name="dialog_ok" tools:ignore="ButtonCase,Typos">Ok</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="confirm">Confirm</string>
+    <string name="done">Done</string>
     <string name="name">Name</string>
 </resources>
