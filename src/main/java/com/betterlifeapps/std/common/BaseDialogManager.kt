@@ -13,7 +13,7 @@ abstract class BaseDialogManager constructor(private val context: Context) {
         MaterialAlertDialogBuilder(context).apply {
             setTitle(title)
             setMessage(message)
-            setPositiveButton(R.string.dialog_ok) { _, _ -> onPositiveButtonClicked() }
+            setPositiveButton(R.string.confirm) { _, _ -> onPositiveButtonClicked() }
             setNegativeButton(R.string.dialog_cancel, null)
         }.show()
     }
