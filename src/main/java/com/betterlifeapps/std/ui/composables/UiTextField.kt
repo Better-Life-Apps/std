@@ -1,5 +1,6 @@
 package com.betterlifeapps.std.ui
 
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
@@ -25,6 +26,7 @@ fun UiTextField(
     readOnly: Boolean = false,
     label: @Composable (() -> Unit)? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions(),
     colors: TextFieldColors = TextFieldDefaults.textFieldColors(
         textColor = Color.White,
         disabledTextColor = Color.Transparent,
@@ -50,6 +52,7 @@ fun UiTextField(
         readOnly = readOnly,
         label = label,
         keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         modifier = modifier
     )
 }
