@@ -32,6 +32,13 @@ val toolbarTextStyle = TextStyle(
     fontSize = 16.sp
 )
 
+val hintTextStyle = TextStyle(
+    fontFamily = lato,
+    fontWeight = FontWeight.Bold,
+    color = Grey.copy(alpha = 0.5f),
+    fontSize = 14.sp
+)
+
 // Set of Material typography styles to start with
 val UiTypography = Typography(
     defaultFontFamily = rubik,

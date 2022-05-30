@@ -1,4 +1,4 @@
-package com.betterlifeapps.std.ui
+package com.betterlifeapps.std.ui.composables
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.betterlifeapps.std.ui.theme.Grey_Light
+import com.betterlifeapps.std.ui.theme.hintTextStyle
 import com.betterlifeapps.std.ui.theme.lato
 
 @Composable
@@ -45,7 +45,9 @@ fun UiTextField(
             fontFamily = lato,
             fontWeight = FontWeight.Normal
         ),
-        placeholder = { Text(text = hint, color = Grey_Light) },
+        placeholder = {
+            Text(text = hint, style = hintTextStyle)
+        },
         colors = colors,
         trailingIcon = trailingIcon,
         enabled = enabled,
