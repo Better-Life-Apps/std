@@ -3,17 +3,15 @@ plugins {
     id 'kotlin-android'
 }
 
-ext {
-    compose_version = '1.1.1'
-}
+apply from: "$rootDir/std/dependencies.gradle"
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion versions.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -36,23 +34,23 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion versions.compose
     }
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+    implementation androidXCore
+    implementation androidXAppCompat
+    implementation material
+    implementation androidXLifecycleRuntimeKtx
 
     // Compose
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+    implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.material:material:${versions.compose}"
+    implementation "androidx.compose.ui:ui-tooling-preview:${versions.compose}"
+    implementation "androidx.compose.runtime:runtime-livedata:${versions.compose}"
     implementation 'androidx.activity:activity-compose:1.5.0-alpha03'
     implementation "androidx.navigation:navigation-compose:2.5.0-alpha03"
 
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:${versions.compose}"
 }

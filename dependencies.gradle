@@ -1,0 +1,14 @@
+ext {
+    versions = [
+            'compileSdk': 31,
+            'targetSdk' : 31,
+            'buildTools': '30.0.3',
+            'compose': '1.1.1'
+    ]
+
+    viewBindingDelegate = 'com.github.kirich1409:viewbindingpropertydelegate:1.5.6'
+    androidXCore = 'androidx.core:core-ktx:1.8.0'
+    androidXAppCompat = 'androidx.appcompat:appcompat:1.4.2'
+    androidXLifecycleRuntimeKtx = 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+    material = 'com.google.android.material:material:1.5.0'
+}
