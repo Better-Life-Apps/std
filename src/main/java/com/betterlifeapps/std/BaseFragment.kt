@@ -1,8 +1,10 @@
 package com.betterlifeapps.std
 
+import android.media.MediaPlayer
 import android.widget.Toast
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
+import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.betterlifeapps.std.common.UiEvent
+import java.lang.IllegalStateException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -18,6 +21,7 @@ import kotlinx.coroutines.launch
 abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
 
     private var previousSoftInputMode = -1
+    private var mediaPlayer: MediaPlayer? = null
 
     protected val supportActionBar: ActionBar?
         get() = (requireActivity() as? AppCompatActivity)?.supportActionBar
@@ -68,6 +72,23 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
         Toast.makeText(requireContext(), textRes, Toast.LENGTH_LONG).show()
     }
 
+    private fun playSoundRes(@RawRes soundRes: Int) {
+        val isPlaying = try {
+            mediaPlayer?.isPlaying == true
+        } catch (exception : IllegalStateException) {
+            false
+        }
+        if (isPlaying) {
+            mediaPlayer?.stop()
+            mediaPlayer?.release()
+        }
+        mediaPlayer = MediaPlayer.create(requireContext(), soundRes)
+        mediaPlayer?.start()
+        mediaPlayer?.setOnCompletionListener {
+            mediaPlayer?.release()
+        }
+    }
+
     @CallSuper
     open fun onUiEvent(event: UiEvent) {
         when (event) {
@@ -76,6 +97,9 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
             }
             is UiEvent.ShowShortToastRes -> {
                 showShortToast(event.textRes)
+            }
+            is UiEvent.PlaySoundRes -> {
+                playSoundRes(event.soundRes)
             }
         }
     }
