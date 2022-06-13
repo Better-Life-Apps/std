@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_ok">ठीक</string>
+    <string name="dialog_cancel">रद्द करना</string>
+    <string name="confirm">पुष्टि करें</string>
+    <string name="done">पूर्ण</string>
+    <string name="enter_name">नाम दर्ज</string>
+</resources>
