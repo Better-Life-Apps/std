@@ -7,6 +7,7 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -29,8 +30,12 @@ abstract class BaseViewModel : ViewModel() {
         block: suspend CoroutineScope.() -> Unit
     ) = viewModelScope.launch(context, block = block)
 
-    protected suspend fun postUiEvent(event: UiEvent) {
-        _uiEvents.emit(event)
+    protected fun postUiEvent(event: UiEvent) {
+        runCoroutine(
+            Dispatchers.Main.immediate
+        ) {
+            _uiEvents.emit(event)
+        }
     }
 
     /**
