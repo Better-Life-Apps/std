@@ -26,9 +26,9 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected fun runCoroutine(
-        context: CoroutineContext = EmptyCoroutineContext + exceptionHandler,
+        context: CoroutineContext = EmptyCoroutineContext,
         block: suspend CoroutineScope.() -> Unit
-    ) = viewModelScope.launch(context, block = block)
+    ) = viewModelScope.launch(context + exceptionHandler, block = block)
 
     protected fun postUiEvent(event: UiEvent) {
         runCoroutine(
