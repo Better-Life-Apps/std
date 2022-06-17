@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="done">Hecho</string>
+    <string name="enter_name">Introduzca el nombre</string>
+</resources>
