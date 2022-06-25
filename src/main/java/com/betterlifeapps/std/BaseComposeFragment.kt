@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 
-abstract class BaseComposeFragment() : BaseFragment(0) {
+abstract class BaseComposeFragment : BaseFragment(0) {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

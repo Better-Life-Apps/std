@@ -14,13 +14,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.betterlifeapps.std.ui.theme.UiTheme
 
 @Composable
 fun UiButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp)
+    contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp),
+    enabled: Boolean = true,
 ) {
     Button(
         onClick = onClick,
@@ -28,7 +30,8 @@ fun UiButton(
         shape = MaterialTheme.shapes.small.copy(
             CornerSize(16.dp)
         ),
-        contentPadding = contentPadding
+        contentPadding = contentPadding,
+        enabled = enabled
     ) {
         Text(
             text = text,
@@ -46,11 +49,14 @@ fun UiButton(
     @StringRes stringRes: Int,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp)
-) = UiButton(text = stringResource(id = stringRes), onClick = onClick, modifier, contentPadding)
+    contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp),
+    enabled: Boolean = true
+) = UiButton(text = stringResource(id = stringRes), onClick = onClick, modifier, contentPadding, enabled)
 
 @Preview
 @Composable
 fun PreviewUiButton() {
-    UiButton("Button", {})
+    UiTheme {
+        UiButton("Button", {})
+    }
 }

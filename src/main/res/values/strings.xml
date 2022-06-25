@@ -4,5 +4,21 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="done">Done</string>
+    <string name="next">Next</string>
+    <string name="send">Send</string>
     <string name="enter_name">Enter name</string>
+    <string name="rate_us">Please rate us!</string>
+    <string name="rating_1">It\'s awful!</string>
+    <string name="rating_2">It\'s bad</string>
+    <string name="rating_3">It\'s fine</string>
+    <string name="rating_4">It\'s good</string>
+    <string name="rating_5">It\'s awesome!</string>
+    <string name="rate">Rate</string>
+    <string name="feedback_page_1_title">Please describe the issues you have encountered</string>
+    <string name="feedback_item_1">The design leaves much to be desired</string>
+    <string name="feedback_item_2">App is crashing or doesn\'t work as expected</string>
+    <string name="feedback_item_3">The functions I need are missing</string>
+    <string name="feedback_item_4">The app localization contains mistakes</string>
+    <string name="feedback_item_5">Other</string>
+    <string name="feedback_page_2_title">Please provide more details on the issue</string>
 </resources>

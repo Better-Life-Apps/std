@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.betterlifeapps.std">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.betterlifeapps.std">
+
+    <application>
+        <activity
+            android:name=".components.feedback.FeedbackActivity"
+            android:exported="false" />
+    </application>
 
 </manifest>

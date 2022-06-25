@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
@@ -42,5 +41,5 @@ abstract class BaseViewModel : ViewModel() {
      * Terminal flow operator that launches the collection of the given flow with a provided [action]
      */
     protected fun <T> Flow<T>.collectFlow(action: suspend (value: T) -> Unit): Job =
-        viewModelScope.launch { collect(action) }
+        viewModelScope.launch { collect { action(it) } }
 }
