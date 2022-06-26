@@ -8,7 +8,6 @@ import android.net.Uri
 object GooglePlayUtil {
     fun openAppInGooglePlay(context: Context) {
         val appPackageName = context.packageName
-
         try {
             context.startActivity(
                 Intent(
@@ -16,13 +15,14 @@ object GooglePlayUtil {
                     Uri.parse("market://details?id=$appPackageName")
                 )
             )
-        } catch (anfe: ActivityNotFoundException) {
+        } catch (exception: ActivityNotFoundException) {
             context.startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")
                 )
             )
+            exception.printStackTrace()
         }
     }
 }

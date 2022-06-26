@@ -51,7 +51,13 @@ fun UiButton(
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(horizontal = 32.dp, vertical = 8.dp),
     enabled: Boolean = true
-) = UiButton(text = stringResource(id = stringRes), onClick = onClick, modifier, contentPadding, enabled)
+) = UiButton(
+    text = stringResource(id = stringRes),
+    onClick = onClick,
+    modifier,
+    contentPadding,
+    enabled
+)
 
 @Preview
 @Composable

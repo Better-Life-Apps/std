@@ -101,14 +101,26 @@ fun FeedbackIssuePage(
         val items = FeedbackViewModel.FeedbackItem.values().map {
             RadioGroupItem(stringResource(id = it.textRes))
         }
-        val selectedIndex = FeedbackViewModel.FeedbackItem.values().indexOf(viewModel.selectedFeedbackItem.value)
-        val (selectedItem, onItemSelected) = remember { mutableStateOf<RadioGroupItem?>(items.getOrNull(selectedIndex)) }
+        val selectedIndex =
+            FeedbackViewModel.FeedbackItem.values().indexOf(viewModel.selectedFeedbackItem.value)
+        val (selectedItem, onItemSelected) = remember {
+            mutableStateOf<RadioGroupItem?>(
+                items.getOrNull(
+                    selectedIndex
+                )
+            )
+        }
         UiRadioGroup(items = items, selected = selectedItem, onItemSelected = {
             onItemSelected(it)
             val index = items.indexOf(it)
             viewModel.onFeedbackItemSelected(FeedbackViewModel.FeedbackItem.values()[index])
         })
-        Box(modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp), contentAlignment = Alignment.Center) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 4.dp),
+            contentAlignment = Alignment.Center
+        ) {
             UiButton(
                 stringRes = R.string.next,
                 onClick = { onNextClicked() },
@@ -146,7 +158,12 @@ fun FeedbackDetailsPage(
         )
         VSpacer(height = 16)
 
-        Box(modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp), contentAlignment = Alignment.Center) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 4.dp),
+            contentAlignment = Alignment.Center
+        ) {
             UiButton(
                 stringRes = R.string.send,
                 onClick = { onNextClicked() },
