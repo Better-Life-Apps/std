@@ -9,13 +9,12 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.betterlifeapps.std.common.UiEvent
-import java.lang.IllegalStateException
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
@@ -75,7 +74,7 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
     private fun playSoundRes(@RawRes soundRes: Int) {
         val isPlaying = try {
             mediaPlayer?.isPlaying == true
-        } catch (exception : IllegalStateException) {
+        } catch (exception: IllegalStateException) {
             false
         }
         if (isPlaying) {
@@ -114,6 +113,22 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 collect { action(it) }
             }
+        }
+    }
+
+    protected inline fun <reified T> Fragment.observeFragmentResult(
+        resultKey: String,
+        usesChildFragmentManager: Boolean = false,
+        crossinline block: (T) -> Unit,
+    ) {
+        val listener = FragmentResultListener { _, bundle ->
+            val result = bundle.get(resultKey) as? T
+            result?.let { block(it) }
+        }
+        if (usesChildFragmentManager) {
+            childFragmentManager.setFragmentResultListener(resultKey, viewLifecycleOwner, listener)
+        } else {
+            parentFragmentManager.setFragmentResultListener(resultKey, viewLifecycleOwner, listener)
         }
     }
 }

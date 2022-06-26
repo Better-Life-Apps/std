@@ -1,6 +1,7 @@
 package com.betterlifeapps.std.components.rating
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,9 +32,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.os.bundleOf
 import com.betterlifeapps.std.R
 import com.betterlifeapps.std.common.GooglePlayUtil
 import com.betterlifeapps.std.components.feedback.FeedbackActivity
+import com.betterlifeapps.std.components.settings.Settings
+import com.betterlifeapps.std.components.settings.SettingsHolder
 import com.betterlifeapps.std.ui.composables.UiButton
 import com.betterlifeapps.std.ui.composables.VSpacer
 import com.betterlifeapps.std.ui.theme.UiTheme
@@ -54,14 +58,30 @@ class RatingDialogFragment : BottomSheetDialogFragment() {
 
             setContent {
                 RatingDialogScreen {
+                    val settings = SettingsHolder.get(requireContext())
+                    settings.setBool(Settings.KEY_RATING_SUBMITTED, true)
                     dismiss()
                 }
             }
         }
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        val bundle = bundleOf(TAG_RATING_DIALOG_RESULT to RatingDialogResult.DISMISSED)
+        parentFragmentManager.setFragmentResult(TAG_RATING_DIALOG_RESULT, bundle)
+    }
+
     override fun getTheme(): Int {
         return R.style.CustomBottomSheetDialog
+    }
+
+    enum class RatingDialogResult {
+        DISMISSED
+    }
+
+    companion object {
+        const val TAG_RATING_DIALOG_RESULT = "rating_dialog_result"
     }
 }
 
@@ -138,5 +158,5 @@ private fun openFeedbackActivity(context: Context) {
 @Preview
 @Composable
 fun RatingScreenPreview() {
-    RatingDialogScreen() {}
+    RatingDialogScreen {}
 }
