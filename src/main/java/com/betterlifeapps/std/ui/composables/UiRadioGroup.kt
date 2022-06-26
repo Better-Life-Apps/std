@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun UiRadioGroup(
     items: List<RadioGroupItem>,
-    selected: RadioGroupItem,
+    selected: RadioGroupItem?,
     onItemSelected: (RadioGroupItem) -> Unit,
     modifier: Modifier = Modifier
 ) {

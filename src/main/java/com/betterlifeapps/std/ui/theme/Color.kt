@@ -17,3 +17,4 @@ val Red_500 = Color(0xFFf44336)
 
 
 val Yellow = Color(0xFFECA946)
+val Yellow_Star = Color(0xFFFCE205)

@@ -9,7 +9,7 @@ import com.betterlifeapps.std.common.UiEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class FeedbackViewModel : BaseViewModel() {
-    private val selectedFeedbackItem = MutableStateFlow<FeedbackItem?>(null)
+    val selectedFeedbackItem = MutableStateFlow<FeedbackItem?>(null)
 
     val description = MutableStateFlow("")
 

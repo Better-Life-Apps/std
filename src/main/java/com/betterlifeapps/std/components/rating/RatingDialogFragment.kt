@@ -11,6 +11,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -21,18 +23,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.betterlifeapps.std.R
 import com.betterlifeapps.std.common.GooglePlayUtil
 import com.betterlifeapps.std.components.feedback.FeedbackActivity
 import com.betterlifeapps.std.ui.composables.UiButton
 import com.betterlifeapps.std.ui.composables.VSpacer
 import com.betterlifeapps.std.ui.theme.UiTheme
+import com.betterlifeapps.std.ui.theme.Yellow_Star
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class RatingDialogFragment : BottomSheetDialogFragment() {
@@ -64,37 +69,49 @@ class RatingDialogFragment : BottomSheetDialogFragment() {
 fun RatingDialogScreen(onRateClicked: () -> Unit) {
     UiTheme {
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 18.dp, bottom = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             var rating by remember { mutableStateOf(0) }
             val context = LocalContext.current
-            VSpacer(height = 8)
-            Text(text = stringResource(id = R.string.rate_us), style = MaterialTheme.typography.h5)
-            VSpacer(height = 8)
-            Image(
-                painter = painterResource(id = R.drawable.ic_baseline_face_24),
-                contentDescription = null
+            Text(
+                text = stringResource(id = R.string.rate_us),
+                style = MaterialTheme.typography.h5,
             )
-            Text(text = stringResource(id = R.string.rating_5), style = MaterialTheme.typography.h6)
+            VSpacer(height = 8)
+            val ratingDescription = when (rating) {
+                1 -> stringResource(id = R.string.rating_1)
+                2 -> stringResource(id = R.string.rating_2)
+                3 -> stringResource(id = R.string.rating_3)
+                4 -> stringResource(id = R.string.rating_4)
+                5 -> stringResource(id = R.string.rating_5)
+                else -> " "
+            }
+            Text(text = ratingDescription, style = MaterialTheme.typography.h6)
             VSpacer(height = 8)
             LazyRow {
                 items(5) { index ->
                     val resourceId = if (rating >= index + 1) {
-                        R.drawable.ic_baseline_star_rate_24
+                        R.drawable.ic_star_filled
                     } else {
-                        R.drawable.ic_baseline_star_outline_24
+                        R.drawable.ic_star_outlined
                     }
 
                     Image(
                         painter = painterResource(id = resourceId),
                         contentDescription = null,
-                        Modifier.clickable(
-                            remember { MutableInteractionSource() },
-                            indication = null
-                        ) {
-                            rating = index + 1
-                        }
+                        colorFilter = ColorFilter.tint(Yellow_Star),
+                        modifier = Modifier
+                            .clickable(
+                                remember { MutableInteractionSource() },
+                                indication = null
+                            ) {
+                                rating = index + 1
+                            }
+                            .size(48.dp)
+                            .padding(horizontal = 4.dp)
                     )
                 }
             }
