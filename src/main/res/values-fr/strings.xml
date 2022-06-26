@@ -5,4 +5,20 @@
     <string name="confirm">Confirmer</string>
     <string name="done">Fait</string>
     <string name="enter_name">Entrez le nom</string>
+    <string name="next">Suivant</string>
+    <string name="send">Envoyer</string>
+    <string name="rate_us">Veuillez nous évaluer !</string>
+    <string name="rating_1">C\'est affreux !</string>
+    <string name="rating_2">C\'est mauvais</string>
+    <string name="rating_3">C\'est normal</string>
+    <string name="rating_4">C\'est bien</string>
+    <string name="rating_5">C\'est super!</string>
+    <string name="rate">Évaluer</string>
+    <string name="feedback_page_1_title">Veuillez décrire les problèmes que vous avez rencontrés</string>
+    <string name="feedback_item_1">Le design laisse beaucoup à désirer</string>
+    <string name="feedback_item_2">L\'application se bloque ou ne fonctionne pas comme prévu</string>
+    <string name="feedback_item_3">Les fonctions dont j\'ai besoin sont absentes</string>
+    <string name="feedback_item_4">La localisation de l\'application contient des erreurs</string>
+    <string name="feedback_item_5">Autre</string>
+    <string name="feedback_page_2_title">Veuillez fournir plus de détails sur cette probleme</string>
 </resources>

@@ -5,4 +5,20 @@
     <string name="confirm">Подтвердить</string>
     <string name="done">Готово</string>
     <string name="enter_name">Введите имя</string>
+    <string name="next">Далее</string>
+    <string name="send">Отправить</string>
+    <string name="rate_us">Пожалуйста оцените нас!</string>
+    <string name="rating_1">Ужасно!</string>
+    <string name="rating_2">Плохо</string>
+    <string name="rating_3">Нормально</string>
+    <string name="rating_4">Хорошо</string>
+    <string name="rating_5">Замечательно!</string>
+    <string name="rate">Оценить</string>
+    <string name="feedback_page_1_title">Пожалуйста опишите проблемы с которыми вы столкнулись</string>
+    <string name="feedback_item_1">Дизайн оставляет желать лучшего</string>
+    <string name="feedback_item_2">Приложение ломается или не работает</string>
+    <string name="feedback_item_3">Отсутствуют нужные функции</string>
+    <string name="feedback_item_4">Перевод приложения содержит ошибки</string>
+    <string name="feedback_item_5">Другое</string>
+    <string name="feedback_page_2_title">Пожалуйста предоставьте больше деталей о проблеме</string>
 </resources>

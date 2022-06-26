@@ -5,4 +5,20 @@
     <string name="confirm">पुष्टि करें</string>
     <string name="done">पूर्ण</string>
     <string name="enter_name">नाम दर्ज</string>
+    <string name="next">अगला</string>
+    <string name="send">भेजना</string>
+    <string name="rate_us">कृपया हमें रेट करें!</string>
+    <string name="rating_1">यह बहुत बुरा है!</string>
+    <string name="rating_2">यह बुरा है</string>
+    <string name="rating_3">यह ठीक है</string>
+    <string name="rating_4">यह अच्छा है</string>
+    <string name="rating_5">यह विस्मयकारी है!</string>
+    <string name="rate">भाव</string>
+    <string name="feedback_page_1_title">कृपया उन समस्याओं का वर्णन करें जिनका आपने सामना किया है</string>
+    <string name="feedback_item_1">डिजाइन वांछित होने के लिए बहुत कुछ छोड़ देता है</string>
+    <string name="feedback_item_2">ऐप क्रैश हो रहा है या उम्मीद के मुताबिक काम नहीं कर रहा है</string>
+    <string name="feedback_item_3">मुझे जिन कार्यों की आवश्यकता है वे गायब हैं</string>
+    <string name="feedback_item_4">ऐप स्थानीयकरण में गलतियाँ हैं</string>
+    <string name="feedback_item_5">अन्य</string>
+    <string name="feedback_page_2_title">कृपया इस मुद्दे पर अधिक जानकारी प्रदान करें</string>
 </resources>
