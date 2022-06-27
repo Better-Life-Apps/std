@@ -20,7 +20,7 @@ abstract class BaseViewModel : ViewModel() {
 
     private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         if (BuildConfig.DEBUG) {
-            println(throwable.printStackTrace())
+            System.err.println(throwable.printStackTrace())
         }
     }
 

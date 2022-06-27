@@ -4,11 +4,11 @@ import android.content.Context
 import com.betterlifeapps.std.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-@Deprecated("Use DialogUtil")
-abstract class BaseDialogManager constructor(private val context: Context) {
+object DialogUtil {
     fun showConfirmationDialog(
         title: String,
         message: String,
+        context: Context,
         onPositiveButtonClicked: () -> Unit = {}
     ) {
         MaterialAlertDialogBuilder(context).apply {
