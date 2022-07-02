@@ -21,4 +21,5 @@
     <string name="rate_us">Por favor, califíquenos.</string>
     <string name="send">Enviar</string>
     <string name="next">Siguiente</string>
+    <string name="error_empty_name">El nombre no puede estar vacío.</string>
 </resources>

@@ -21,4 +21,5 @@
     <string name="feedback_item_4">ऐप स्थानीयकरण में गलतियाँ हैं</string>
     <string name="feedback_item_5">अन्य</string>
     <string name="feedback_page_2_title">कृपया इस मुद्दे पर अधिक जानकारी प्रदान करें</string>
+    <string name="error_empty_name">नाम खाली नहीं हो सकता.</string>
 </resources>

@@ -34,7 +34,8 @@ fun UiTextField(
         focusedIndicatorColor = Color.Gray,
         unfocusedIndicatorColor = Color.Gray,
         disabledIndicatorColor = Color.Gray
-    )
+    ),
+    isError: Boolean = false,
 ) {
     TextField(
         value = value,
@@ -55,6 +56,7 @@ fun UiTextField(
         label = label,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
+        isError = isError,
         modifier = modifier
     )
 }

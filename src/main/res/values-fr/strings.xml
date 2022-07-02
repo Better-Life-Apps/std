@@ -21,4 +21,5 @@
     <string name="feedback_item_4">La localisation de l\'application contient des erreurs</string>
     <string name="feedback_item_5">Autre</string>
     <string name="feedback_page_2_title">Veuillez fournir plus de détails sur cette probleme</string>
+    <string name="error_empty_name">Le nom ne peut pas être vide.</string>
 </resources>
