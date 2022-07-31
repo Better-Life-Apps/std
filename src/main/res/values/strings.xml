@@ -22,4 +22,5 @@
     <string name="feedback_item_5">Other</string>
     <string name="feedback_page_2_title">Please provide more details on the issue</string>
     <string name="error_empty_name">Name cannot be empty.</string>
+    <string name="coming_soon">Coming soon</string>
 </resources>

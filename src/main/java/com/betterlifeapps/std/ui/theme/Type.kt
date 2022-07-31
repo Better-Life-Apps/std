@@ -53,6 +53,12 @@ val UiTypography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         letterSpacing = 0.5.sp
+    ),
+    body2 = TextStyle(
+        fontFamily = rubik,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        color = Grey
     )
     /* Other default text styles to override
     button = TextStyle(
