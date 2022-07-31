@@ -8,5 +8,6 @@ abstract class UiEvent {
     data class ShowShortToast(val text: String) : UiEvent()
     data class ShowShortToastRes(@StringRes val textRes: Int) : UiEvent()
     data class PlaySoundRes(@RawRes val soundRes: Int) : UiEvent()
+    data class Vibrate(val duration: Long = 300L) : UiEvent()
     data class StartActivity(val intent: Intent) : UiEvent()
 }

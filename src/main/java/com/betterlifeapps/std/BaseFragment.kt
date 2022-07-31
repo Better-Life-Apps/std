@@ -1,6 +1,9 @@
 package com.betterlifeapps.std
 
 import android.media.MediaPlayer
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.widget.Toast
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
@@ -8,6 +11,7 @@ import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.Lifecycle
@@ -100,6 +104,20 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
             is UiEvent.PlaySoundRes -> {
                 playSoundRes(event.soundRes)
             }
+            is UiEvent.Vibrate -> {
+                vibrate(event.duration)
+            }
+        }
+    }
+
+    private fun vibrate(duration: Long) {
+        val vibrator = ContextCompat.getSystemService(requireContext(), Vibrator::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val effect = VibrationEffect.createOneShot(duration, 200)
+            vibrator?.vibrate(effect)
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator?.vibrate(duration)
         }
     }
 
