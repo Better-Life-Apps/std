@@ -22,4 +22,9 @@
     <string name="feedback_item_5">Другое</string>
     <string name="feedback_page_2_title">Пожалуйста предоставьте больше деталей о проблеме</string>
     <string name="error_empty_name">Название не может быть пустым.</string>
+    <string name="rate_application">Оценить приложение</string>
+    <string name="send_feedback">Отправить отзыв</string>
+    <string name="coming_soon">Скоро</string>
+    <string name="made_with_love">Сделано с любовью <b>BetterLifeApps</b></string>
+    <string name="version_template">Версия %s</string>
 </resources>
