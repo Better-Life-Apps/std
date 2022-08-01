@@ -7,7 +7,7 @@
     <string name="enter_name">Введите имя</string>
     <string name="next">Далее</string>
     <string name="send">Отправить</string>
-    <string name="rate_us">Пожалуйста оцените нас!</string>
+    <string name="please_rate_us">Пожалуйста оцените нас!</string>
     <string name="rating_1">Ужасно!</string>
     <string name="rating_2">Плохо</string>
     <string name="rating_3">Нормально</string>

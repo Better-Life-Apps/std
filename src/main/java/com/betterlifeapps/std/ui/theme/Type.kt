@@ -48,11 +48,16 @@ val UiTypography = Typography(
         fontSize = 24.sp,
         letterSpacing = 0.sp
     ),
+    h6 = TextStyle(
+        fontFamily = rubik,
+        fontWeight = FontWeight.Medium,
+        fontSize = 16.sp
+    ),
     body1 = TextStyle(
         fontFamily = rubik,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        letterSpacing = 0.5.sp
+        fontSize = 14.sp,
+        color = Grey_Light
     ),
     body2 = TextStyle(
         fontFamily = rubik,

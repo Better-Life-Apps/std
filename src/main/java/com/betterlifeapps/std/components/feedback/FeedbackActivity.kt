@@ -1,5 +1,7 @@
 package com.betterlifeapps.std.components.feedback
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
@@ -44,6 +46,13 @@ class FeedbackActivity : BaseActivity() {
                     onBackPressed()
                 }
             }
+        }
+    }
+
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, FeedbackActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }

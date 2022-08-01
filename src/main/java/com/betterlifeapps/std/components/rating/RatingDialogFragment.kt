@@ -82,6 +82,9 @@ class RatingDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
         const val TAG_RATING_DIALOG_RESULT = "rating_dialog_result"
+        const val TAG_RATING_DIALOG_FRAGMENT = "rating_dialog_fragment"
+
+        fun newInstance() = RatingDialogFragment()
     }
 }
 
@@ -97,7 +100,7 @@ fun RatingDialogScreen(onRateClicked: () -> Unit) {
             var rating by remember { mutableStateOf(0) }
             val context = LocalContext.current
             Text(
-                text = stringResource(id = R.string.rate_us),
+                text = stringResource(id = R.string.please_rate_us),
                 style = MaterialTheme.typography.h5,
             )
             VSpacer(height = 8)
@@ -142,17 +145,12 @@ fun RatingDialogScreen(onRateClicked: () -> Unit) {
                 if (rating == 5) {
                     GooglePlayUtil.openAppInGooglePlay(context)
                 } else {
-                    openFeedbackActivity(context)
+                    FeedbackActivity.start(context)
                 }
                 onRateClicked()
             }, enabled = rating > 0)
         }
     }
-}
-
-private fun openFeedbackActivity(context: Context) {
-    val intent = Intent(context, FeedbackActivity::class.java)
-    context.startActivity(intent)
 }
 
 @Preview

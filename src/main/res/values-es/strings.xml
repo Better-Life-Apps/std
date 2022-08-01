@@ -18,7 +18,7 @@
     <string name="rating_3">Es normal</string>
     <string name="rating_2">Es malo</string>
     <string name="rating_1">¡Es horrible!</string>
-    <string name="rate_us">Por favor, califíquenos.</string>
+    <string name="please_rate_us">Por favor, califíquenos.</string>
     <string name="send">Enviar</string>
     <string name="next">Siguiente</string>
     <string name="error_empty_name">El nombre no puede estar vacío.</string>
